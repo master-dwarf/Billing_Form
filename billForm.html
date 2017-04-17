@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script src="bill.js" type="text/javascript"></script>
+    <style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 1px solid black;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+    .bill, .billNumber{
+        
+    }
+    </style>
+  </head>
+  <body>
+        <!-- billing number-->
+        <p id="bill">Bill number:</p>
+        <input type="number" id="billNumber"/>
+        <!-- bill for company-->
+        <p id="who">who is the bill for:</p>
+        <textarea id="company" rows=4></textarea>
+    <fieldset>
+      <legend>Services</legend>
+    <!-- service description-->
+    <div id=service></div>
+    <table id="service_table">
+      <tr>
+        <th>description</th>
+        <th>quantity</th>
+        <th>cost</th>
+        <th>total</th>
+      </tr>
+    </table>
+    <button id="addser">add service</button>
+    <button id="total">get Totals</button>
+  </fieldset>
+  </body>
+</html>
