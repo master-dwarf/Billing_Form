@@ -18,12 +18,18 @@
     tr:nth-child(even) {
         background-color: #dddddd;
     }
+    @media print {
+      #printPageButton, #addser, #total {
+        display: none;
+      }
+    }
     .bill, .billNumber{
-        
+
     }
     </style>
   </head>
   <body>
+    <button id="printPageButton" onClick="window.print();">Print</button>
         <!-- billing number-->
         <p id="bill">Bill number:</p>
         <input type="number" id="billNumber"/>

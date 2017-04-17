@@ -8,9 +8,11 @@ window.onload=function(){
   }
 }
 
-var num = 1;
+var num = 0;
 
 function addRow(){
+    num++;
+
   var table = document.getElementById("service_table");
   var tr = document.createElement("tr");
 
@@ -20,7 +22,7 @@ function addRow(){
   var td = document.createElement("td");
 
   var textarea = document.createElement("textarea");
-  textarea.setAttribute('cols',120);
+  textarea.setAttribute('cols',100);
   textarea.setAttribute('rows',7);
   textarea.setAttribute('id',"text"+num);
   var input1 = document.createElement("input");
@@ -42,23 +44,13 @@ function addRow(){
   tr.appendChild(cost);
   tr.appendChild(td);
   table.appendChild(tr);
-
-
-  num++;
 }
 
 function calctots(){
-  var table = document.getElementById("service_table");
-  var tr = document.createElement("tr");
+  var x = document.getElementById("cost"+num);
+  var cost = x.value;
+  var y = document.getElementById("quant"+num);
+  var q = y.value;
 
-  var td1 = document.createElement("td");
-  var td2 = document.createElement("td");
-  var td3 = document.createElement("td");
-  var tot = document.createElement("td");
-
-  tr.appendChild(td1);
-  tr.appendChild(td2);
-  tr.appendChild(td3);
-  tr.appendChild(tot);
-  table.appendChild(tr);
+  document.getElementById("total"+num).innerHTML = "$"+cost * q+".00";
 }
