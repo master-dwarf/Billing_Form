@@ -3,6 +3,9 @@
   <head>
     <script src="bill.js" type="text/javascript"></script>
     <style>
+    textarea, input{
+      font-size: 28pt;
+    }
     table {
         font-family: arial, sans-serif;
         border-collapse: collapse;
@@ -19,12 +22,12 @@
         background-color: #dddddd;
     }
     @media print {
-      #printPageButton, #addser, #total {
+      #printPageButton, #addser, #alltotal {
         display: none;
       }
-    }
-    .bill, .billNumber{
-
+      textarea, input{
+        border: none;
+      }
     }
     </style>
   </head>
@@ -35,21 +38,20 @@
         <input type="number" id="billNumber"/>
         <!-- bill for company-->
         <p id="who">who is the bill for:</p>
-        <textarea id="company" rows=4></textarea>
+        <textarea id="company" rows=4 cols=25></textarea>
     <fieldset>
       <legend>Services</legend>
     <!-- service description-->
     <div id=service></div>
     <table id="service_table">
       <tr>
-        <th>description</th>
-        <th>quantity</th>
-        <th>cost</th>
-        <th>total</th>
+        <th width=50% >description</th>
+        <th width=20%>quantity</th>
+        <th width=20%>cost</th>
+        <th width=10%>total</th>
       </tr>
     </table>
     <button id="addser">Add Service</button>
-    <button id="total">Get Totals</button>
     <button id="alltotal">Get Final Total</button>
   </fieldset>
   </body>
