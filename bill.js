@@ -4,7 +4,9 @@ window.onload=function(){
 }
   document.getElementById('total').onclick = function() {
     calctots();
-    document.getElementById('total').setAttribute('dissabled',true);
+  }
+  document.getElementById('alltotal').onclick = function() {
+    caltfinaltotal();
   }
 }
 
@@ -47,10 +49,43 @@ function addRow(){
 }
 
 function calctots(){
-  var x = document.getElementById("cost"+num);
-  var cost = x.value;
-  var y = document.getElementById("quant"+num);
-  var q = y.value;
+  for(var i=num;i>0;i--){
+    var x = document.getElementById("cost"+i);
+    var cost = x.value;
+    var y = document.getElementById("quant"+i);
+    var q = y.value;
 
-  document.getElementById("total"+num).innerHTML = "$"+cost * q+".00";
+    document.getElementById("total"+i).innerHTML = "$"+cost * q+".00";
+  }
+}
+
+function caltfinaltotal(){
+  var sum = 0;
+
+  for(var i=num;i>0;i--){
+    var x = document.getElementById("cost"+i);
+    var cost = x.value;
+    var y = document.getElementById("quant"+i);
+    var q = y.value;
+
+    var total = q * cost;
+
+    document.getElementById("total"+i).innerHTML = "$"+total+".00";
+    sum = sum + total;
+  }
+
+  var table = document.getElementById("service_table");
+  var tr = document.createElement("tr");
+  var des = document.createElement("td");
+  var quan = document.createElement("td");
+  var cost = document.createElement("td");
+  var total = document.createElement("td");
+
+  total.innerHTML = "$"+sum+".00";
+
+  tr.appendChild(des);
+  tr.appendChild(quan);
+  tr.appendChild(cost);
+  tr.appendChild(total);
+  table.appendChild(tr);
 }
