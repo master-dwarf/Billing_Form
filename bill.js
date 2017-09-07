@@ -3,7 +3,7 @@ window.onload=function(){
     addRow();
 }
   document.getElementById('alltotal').onclick = function() {
-    caltfinaltotal();
+    calc_cost();
   }
 }
 
@@ -49,9 +49,9 @@ function addRow(){
   tr.appendChild(td);
   // append row to table
   table.appendChild(tr);
-}
+ }
 
-function caltfinaltotal(){
+function calc_cost(){
   // create the sum @ 0
   var sum = 0;
   // loop through the rows
@@ -63,25 +63,13 @@ function caltfinaltotal(){
     // total the current rows
     var total = q * cost;
     // set the row total to the calculated
-    document.getElementById("total"+i).innerHTML = "$"+total+".00";
+    document.getElementById("total"+i).innerHTML = total;
     // add the total to sum.
     sum = sum + total;
+	 document.getElementById("subtot").innerHTML = sum;
+	 var tax = sum * .05;
+	 document.getElementById("tax").innerHTML = tax;
+	 var fintot = sum + tax;
+	 document.getElementById("fintotal").innerHTML = fintot;
   }
-  // get the table.
-  var table = document.getElementById("service_table");
-  // create the row and cells for table.
-  var tr = document.createElement("tr");
-  var des = document.createElement("td");
-  var quan = document.createElement("td");
-  var cost = document.createElement("td");
-  var total = document.createElement("td");
-  // input the sum into the total cell
-  total.innerHTML = "$"+sum+".00";
-  // append the cells to the row.
-  tr.appendChild(des);
-  tr.appendChild(quan);
-  tr.appendChild(cost);
-  tr.appendChild(total);
-  //append row to table.
-  table.appendChild(tr);
 }
